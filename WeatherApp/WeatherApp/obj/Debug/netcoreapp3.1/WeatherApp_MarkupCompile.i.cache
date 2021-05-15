@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
 C:\Users\rolan\OneDrive\Asztali gép\CodeCool\jobhunt\porejcts\ForJobs\WeatherApp-WPF\WeatherApp\WeatherApp\App.xaml
-11151548125
+3-1549586649
 
-5-563096299
+11-54332613
 1921654412462
-MainWindow.xaml;
+Views\DailyView.xaml;Views\MainWindowView.xaml;Views\WeeklyView.xaml;
 
 False
 
