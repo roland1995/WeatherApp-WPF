@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WeatherApp.Models
 {
-    class ActualWeatherModel
+    class DailyWeatherModel
     {
     }
 }

@@ -21,5 +21,17 @@ namespace WeatherApp.Views
         {
             InitializeComponent();
         }
+        private void WindowLoaded(object sender, RoutedEventArgs e)
+        {
+
+            WeeklyView.Children.Clear();
+            DailyView.Children.Clear();
+            DailyView.Children.Add(new DailyView());
+            WeeklyView.Children.Add(new WeeklyView());
+        }
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }

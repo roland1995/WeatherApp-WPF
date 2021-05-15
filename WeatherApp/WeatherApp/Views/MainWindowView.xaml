@@ -5,8 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WeatherApp.Views"
         mc:Ignorable="d"
-        Title="MainWindowView" Height="450" Width="800">
-    <Grid>
-        
+       Title="MainWindowView" Height="700" WindowStyle="None" Width="1200" Loaded="WindowLoaded" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        >
+    <Grid Background="OrangeRed">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="13*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+            <TextBlock FontSize="30" TextAlignment="Center" FontWeight="Black" Background="Black" Foreground="BlueViolet">Weather App</TextBlock>
+        </Grid>
+        <Grid Grid.Column="0" Grid.Row="1" Name="DailyView">
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="1"  Name="WeeklyView">
+        </Grid>
+        <Grid Grid.Column="0" Grid.Row="2" Background="OrangeRed">
+            <Button HorizontalAlignment="Center" Style="{StaticResource ButtonRoundedCorner}" VerticalAlignment="Center"  x:Name="btnExit" Click="btnExit_Click" Width="64" Height="37">
+                Exit
+            </Button>
+        </Grid>
     </Grid>
 </Window>
