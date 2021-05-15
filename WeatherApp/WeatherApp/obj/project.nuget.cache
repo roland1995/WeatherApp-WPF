@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "qCQgIOEk/m4esTt2je9OCK3myzVaFYqTXlA6pmOrDbE8s8xAmqoL2WynMwUSrx9AymsGjDKg/q9Ly/0q7A2utg==",
+  "dgSpecHash": "C2T/m3Z9DT9FceIudXC9YG7/UkKZt3f8oIM+qIMFOGvzqEMvyTfFIGZee9APacHVfZ2qjDErCKszMvqqG0sQeg==",
   "success": true,
   "projectFilePath": "C:\\Users\\rolan\\OneDrive\\Asztali gép\\CodeCool\\jobhunt\\porejcts\\ForJobs\\WeatherApp-WPF\\WeatherApp\\WeatherApp\\WeatherApp.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\rolan\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
   "logs": []
 }
