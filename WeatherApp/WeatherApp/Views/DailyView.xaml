@@ -27,10 +27,10 @@
                     <DataTemplate>
                         <StackPanel>
                             <Border BorderBrush="Black" BorderThickness="1">
-                                <TextBlock  Width="120"  FontSize="24" TextAlignment="Center" Text="{Binding Key}" HorizontalAlignment="Center" />
+                                <TextBlock  Width="270"  FontSize="24" TextAlignment="Center" Text="{Binding Key}" HorizontalAlignment="Center" />
                             </Border>
-                            <Border BorderBrush="Black" BorderThickness="1" Margin="2">
-                                <TextBlock Width="270"  FontSize="20" TextAlignment="Center" Text="{Binding Value}" HorizontalAlignment="Center" />
+                            <Border BorderBrush="Black" BorderThickness="1" Margin="3">
+                                <TextBlock Width="270"  FontSize="22" TextAlignment="Center" Text="{Binding Value}" HorizontalAlignment="Center" />
                             </Border>
                         </StackPanel>
                     </DataTemplate>

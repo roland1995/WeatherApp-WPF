@@ -11,8 +11,7 @@ namespace WeatherApp.ViewModels
     {
         private DailyWeatherModel _weatherModel;
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
-
-
+      
         GetDailyWeatherData GetActualWeatherData;
         public DailyViewModel()
         {
@@ -35,7 +34,12 @@ namespace WeatherApp.ViewModels
         public async void Setup()
         {
             WeatherModel = await GetActualWeatherData.GetActualWeather();
-
+            WeatherModel.Main["temp"] += " Celsius";
+            WeatherModel.Main["temp_min"] += " Celsius";
+            WeatherModel.Main["temp_max"] += " Celsius";
+            WeatherModel.Main["feels_like"] += " Celsius";
+            WeatherModel.Main["humidity"] += " %";
+            WeatherModel.Main["pressure"] += " hPa";
         }
 
 
