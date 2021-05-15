@@ -5,8 +5,19 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WeatherApp.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="700" d:DesignWidth="900">
-    <Grid>
-            
+                     d:DesignHeight="700" d:DesignWidth="900">
+    <Grid Background="mediumturquoise">
+        <Canvas Width="600" Height="400" Name="WeeklyCanvas" Margin="50,200,50,71">
+            <Polyline
+                        Points="10 400, 150 330, 300 301 , 450 315, 600 312"
+                        Stroke="OrangeRed"
+                        StrokeThickness="5" Canvas.Top="-12" 
+                />
+            <Polyline
+                    Points="10 400, 150 350, 300 340 , 450 345, 600 350"
+                    Stroke="LightBlue"
+                    StrokeThickness="5"
+                    />
+        </Canvas>
     </Grid>
 </UserControl>
