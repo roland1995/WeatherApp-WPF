@@ -17,4 +17,3 @@ namespace WeatherApp.Models
         public IDictionary<string, string> Main { get; set; }
     }
 }
-}

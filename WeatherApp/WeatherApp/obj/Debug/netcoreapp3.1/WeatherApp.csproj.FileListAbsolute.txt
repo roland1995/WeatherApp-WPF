@@ -22,3 +22,5 @@ C:\Users\rolan\OneDrive\Asztali gép\CodeCool\jobhunt\porejcts\ForJobs\WeatherAp
 C:\Users\rolan\OneDrive\Asztali gép\CodeCool\jobhunt\porejcts\ForJobs\WeatherApp-WPF\WeatherApp\WeatherApp\obj\Debug\netcoreapp3.1\WeatherApp.pdb
 C:\Users\rolan\OneDrive\Asztali gép\CodeCool\jobhunt\porejcts\ForJobs\WeatherApp-WPF\WeatherApp\WeatherApp\obj\Debug\netcoreapp3.1\WeatherApp.genruntimeconfig.cache
 C:\Users\rolan\OneDrive\Asztali gép\CodeCool\jobhunt\porejcts\ForJobs\WeatherApp-WPF\WeatherApp\WeatherApp\obj\Debug\netcoreapp3.1\App.baml
+C:\Users\rolan\OneDrive\Asztali gép\CodeCool\jobhunt\porejcts\ForJobs\WeatherApp-WPF\WeatherApp\WeatherApp\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\rolan\OneDrive\Asztali gép\CodeCool\jobhunt\porejcts\ForJobs\WeatherApp-WPF\WeatherApp\WeatherApp\obj\Debug\netcoreapp3.1\WeatherApp.csproj.CopyComplete

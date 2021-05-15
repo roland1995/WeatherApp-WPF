@@ -5,8 +5,38 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WeatherApp.Views"
              mc:Ignorable="d" 
-            d:DesignHeight="700" d:DesignWidth="300" >
-    <Grid>
-            
+             d:DesignHeight="700" d:DesignWidth="300" >
+    <Grid Background="sandybrown">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="7*"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <TextBlock Width="57"  FontSize="24" TextAlignment="Center" Text="City:" HorizontalAlignment="Left" Margin="0,20,0,20"/>
+            <TextBlock  FontSize="24" TextAlignment="Left" Text="{Binding WeatherModel.Name}" Margin="62,20,5,20"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <ListBox 
+                Background="sandybrown"
+            ItemsSource="{Binding WeatherModel.Main}"
+             SelectedValuePath="Value"
+            SelectedValue="{Binding Value}" 
+            >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <Border BorderBrush="Black" BorderThickness="1">
+                                <TextBlock  Width="120"  FontSize="24" TextAlignment="Center" Text="{Binding Key}" HorizontalAlignment="Center" />
+                            </Border>
+                            <Border BorderBrush="Black" BorderThickness="1" Margin="2">
+                                <TextBlock Width="270"  FontSize="20" TextAlignment="Center" Text="{Binding Value}" HorizontalAlignment="Center" />
+                            </Border>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
     </Grid>
 </UserControl>
+

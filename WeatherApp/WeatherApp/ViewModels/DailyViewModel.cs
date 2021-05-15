@@ -18,8 +18,6 @@ namespace WeatherApp.ViewModels
         {
             GetActualWeatherData = new GetDailyWeatherData();
             Setup();
-            Console.WriteLine(WeatherModel);
-            Console.WriteLine(WeatherModel);
         }
 
 
