@@ -9,7 +9,7 @@ using Newtonsoft.Json.Linq;
 
 namespace WeatherApp.Services
 {
-    class GetDailyWeatherData
+    public class GetDailyWeatherData
     {
         public DailyWeatherModel weatherModel { get; set; }
 

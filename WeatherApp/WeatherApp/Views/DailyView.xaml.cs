@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WeatherApp.ViewModels;
 
 namespace WeatherApp.Views
 {
@@ -18,9 +19,12 @@ namespace WeatherApp.Views
     /// </summary>
     public partial class DailyView : UserControl
     {
+        private DailyViewModel DailyViewmodel { get; set; }
         public DailyView()
         {
             InitializeComponent();
+            DailyViewmodel = new DailyViewModel();
+            DataContext = DailyViewmodel;
         }
     }
 }

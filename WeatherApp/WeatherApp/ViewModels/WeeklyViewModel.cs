@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WeatherApp.ViewModels
 {
-    class WeeklyViewModel
+    public class WeeklyViewModel
     {
     }
 }

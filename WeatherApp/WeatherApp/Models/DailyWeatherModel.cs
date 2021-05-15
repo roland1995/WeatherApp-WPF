@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace WeatherApp.Models
 {
-    class DailyWeatherModel
+    public class DailyWeatherModel
     {
         [JsonPropertyName("name")]
         public string Name { get; set; }
