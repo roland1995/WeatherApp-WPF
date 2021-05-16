@@ -11,12 +11,12 @@
             <Polyline
                         Points="{Binding PointsMax}"
                         Stroke="OrangeRed"
-                        StrokeThickness="5" Canvas.Top="-10" 
+                        StrokeThickness="7" Canvas.Top="-10" 
                 />
             <Polyline
                     Points="{Binding PointsMin}"
                     Stroke="LightBlue"
-                    StrokeThickness="5" Canvas.Top="-10" 
+                    StrokeThickness="7" Canvas.Top="-10" 
                     />
         </Canvas>
     </Grid>

@@ -20,15 +20,16 @@ namespace WeatherApp.Views
     public partial class WeeklyView : UserControl
     {
         public IList<string> Days { get; set; }
-        public IList<string> MaxTemps { get; set; }
-        public IList<string> MinTemps { get; set; }
+        public IList<double> MaxTemps { get; set; }
+        public IList<double> MinTemps { get; set; }
         private WeeklyViewModel _weeklyViewModel;
         public WeeklyView()
         {
-            _weeklyViewModel = new WeeklyViewModel();
+            
             InitializeComponent();
+            _weeklyViewModel = new WeeklyViewModel(WeeklyCanvas.Height, WeeklyCanvas.Width);
             SetUpCanvas();
-            DataContext = _weeklyViewModel;
+           
         }
 
         private async void SetUpCanvas()
@@ -39,6 +40,8 @@ namespace WeatherApp.Views
             AddDaysToCanvas();
             AddMaxTempsToCanvas();
             AddMinTempsToCanvas();
+            DataContext = _weeklyViewModel;
+
 
         }
         private void AddMaxTempsToCanvas()

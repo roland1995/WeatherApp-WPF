@@ -14,7 +14,7 @@ namespace WeatherApp.Models
         public DateTime Date { get; set; }
 
         [JsonPropertyName("temp")]
-        public IDictionary<string, string> Temp { get; set; }
+        public IDictionary<string, double> Temp { get; set; }
 
         private int _dt;
 

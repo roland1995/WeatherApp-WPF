@@ -23,8 +23,7 @@
             <ListBox 
                 Background="sandybrown"
             ItemsSource="{Binding WeatherModel.Main}"
-             SelectedValuePath="Value"
-            SelectedValue="{Binding Value}" 
+           
             >
                 <ListBox.ItemTemplate>
                     <DataTemplate>
