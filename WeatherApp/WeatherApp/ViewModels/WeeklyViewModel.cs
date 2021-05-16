@@ -8,6 +8,7 @@ namespace WeatherApp.ViewModels
 {
     public class WeeklyViewModel
     {
+        private static string Path = "http://api.openweathermap.org/data/2.5/forecast?q=Budapest&units=metric&appid=386e45cb67b5d72af5917dc5b17536cb";
         private short[] dataXCoordinate = new short[] { 10, 150, 300, 450, 600 };
         private short[] dataMax1 = new short[] { 400, 330, 301, 315, 312 }; 
         private short[] dataMin = new short[] { 10, 150, 300, 450, 600 };

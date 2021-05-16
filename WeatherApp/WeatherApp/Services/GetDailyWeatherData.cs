@@ -11,11 +11,15 @@ namespace WeatherApp.Services
 {
     public class GetDailyWeatherData
     {
+        private readonly string baseURL;
         public DailyWeatherModel weatherModel { get; set; }
 
+        public GetDailyWeatherData(string path)
+        {
+            baseURL = path;
+        }
         public async Task<DailyWeatherModel> GetActualWeather()
         {
-            string baseURL = $"http://api.openweathermap.org/data/2.5/weather?q=Budapest&units=metric&appid=386e45cb67b5d72af5917dc5b17536cb";
             try
             {
                 using (HttpClient client = new HttpClient())

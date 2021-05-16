@@ -9,13 +9,14 @@ namespace WeatherApp.ViewModels
 {
     public class DailyViewModel : INotifyPropertyChanged
     {
+        private static string Path = "http://api.openweathermap.org/data/2.5/weather?q=Budapest&units=metric&appid=386e45cb67b5d72af5917dc5b17536cb";
         private DailyWeatherModel _weatherModel;
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
       
         GetDailyWeatherData GetActualWeatherData;
         public DailyViewModel()
         {
-            GetActualWeatherData = new GetDailyWeatherData();
+            GetActualWeatherData = new GetDailyWeatherData(Path);
             Setup();
         }
 
