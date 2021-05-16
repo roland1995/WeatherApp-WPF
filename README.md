@@ -8,3 +8,5 @@
 
 ## Used technologies
 - WPF(.Net)
+
+### Project Kanban board -> https://github.com/roland1995/WeatherApp-WPF/projects/1
