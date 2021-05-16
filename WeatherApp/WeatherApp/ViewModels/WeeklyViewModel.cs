@@ -87,7 +87,7 @@ namespace WeatherApp.ViewModels
         {
             foreach (var weather in WeeklyWeatherList)
             {
-                var day = weather.Date.ToString("dddd");
+                var day = weather.Date.ToString("dddd"); // get the Day in hungarian should refact later!
 
                 switch (day)
                 {
