@@ -9,14 +9,14 @@
     <Grid Background="mediumturquoise">
         <Canvas Width="600" Height="400" Name="WeeklyCanvas" Margin="50,200,50,71">
             <Polyline
-                        Points="10 400, 150 330, 300 301 , 450 315, 600 312"
+                        Points="{Binding PointsMax}"
                         Stroke="OrangeRed"
-                        StrokeThickness="5" Canvas.Top="-12" 
+                        StrokeThickness="5" Canvas.Top="-10" 
                 />
             <Polyline
-                    Points="10 400, 150 350, 300 340 , 450 345, 600 350"
+                    Points="{Binding PointsMin}"
                     Stroke="LightBlue"
-                    StrokeThickness="5"
+                    StrokeThickness="5" Canvas.Top="-10" 
                     />
         </Canvas>
     </Grid>

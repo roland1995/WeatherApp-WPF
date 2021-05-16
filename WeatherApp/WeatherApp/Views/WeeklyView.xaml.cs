@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WeatherApp.ViewModels;
 
 namespace WeatherApp.Views
 {
@@ -18,9 +19,12 @@ namespace WeatherApp.Views
     /// </summary>
     public partial class WeeklyView : UserControl
     {
+        private WeeklyViewModel WeeklyViewModel;
         public WeeklyView()
         {
+            WeeklyViewModel = new WeeklyViewModel();
             InitializeComponent();
+            DataContext = WeeklyViewModel;
         }
     }
 }
