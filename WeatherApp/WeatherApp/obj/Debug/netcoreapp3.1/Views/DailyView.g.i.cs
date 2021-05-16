@@ -53,7 +53,7 @@ namespace WeatherApp.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/WeatherApp;component/views/dailyview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/WeatherApp;V1.0.0.0;component/views/dailyview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\DailyView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
