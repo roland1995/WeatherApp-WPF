@@ -9,10 +9,18 @@ namespace WeatherApp.ViewModels
 {
     public class DailyViewModel : INotifyPropertyChanged
     {
+        private GetDailyWeatherData GetActualWeatherData;
         private static string Path = "http://api.openweathermap.org/data/2.5/weather?q=Budapest&units=metric&appid=386e45cb67b5d72af5917dc5b17536cb";
         private DailyWeatherModel _weatherModel;
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
         public IDictionary<string, string> _weather;
+
+        public DailyViewModel()
+        {
+            WeatherDict = new Dictionary<string, string>();
+            GetActualWeatherData = new GetDailyWeatherData(Path);
+            Setup();
+        }
 
         public IDictionary<string, string> WeatherDict
         {
@@ -25,13 +33,6 @@ namespace WeatherApp.ViewModels
             }
         }
 
-    GetDailyWeatherData GetActualWeatherData;
-        public DailyViewModel()
-        {
-            WeatherDict = new Dictionary<string, string>();
-            GetActualWeatherData = new GetDailyWeatherData(Path);
-            Setup();
-        }
         public DailyWeatherModel WeatherModel
         {
             get => _weatherModel;
@@ -43,7 +44,7 @@ namespace WeatherApp.ViewModels
             }
         }
 
-        public async void Setup()
+        private async void Setup()
         {
             WeatherModel = await GetActualWeatherData.GetActualWeather();
             WeatherDict.Add("temperature", WeatherModel.Main["temp"] + "°C");

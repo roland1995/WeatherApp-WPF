@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -24,6 +25,7 @@ namespace WeatherApp.Views
         {
             InitializeComponent();
             DailyViewmodel = new DailyViewModel();
+            Thread.Sleep(1000);
             DataContext = DailyViewmodel;
         }
     }
