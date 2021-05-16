@@ -41,7 +41,6 @@ namespace WeatherApp.ViewModels
             WeatherModel.Main["pressure"] += " hPa";
         }
 
-
         private void RaisePropertyChanged(string propertyName)
         {
             var handlers = PropertyChanged;

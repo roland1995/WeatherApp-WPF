@@ -33,20 +33,16 @@ namespace WeatherApp.Services
                             {
                                 string data = await content.ReadAsStringAsync();
                                 if (data != null)
-                                {
-                               
+                                {                               
                                     JObject parent = JObject.Parse(data);
                                 foreach (JProperty property in parent.Properties())
                                 {
                                     if (property.Name == "daily")
-                                    {
-                                        
+                                    {                                     
                                         var myList = property.Value;
                                         foreach(var item in myList)
-                                        {
-                                           
-                                            WeatherModelList.Add(item.ToObject<WeeklyWeatherModel>());
-                                   
+                                        {                                           
+                                            WeatherModelList.Add(item.ToObject<WeeklyWeatherModel>());                                   
                                         }
                                         break;
                                     }
@@ -67,8 +63,7 @@ namespace WeatherApp.Services
                 catch (Exception exception)
                 {
                     Console.WriteLine(exception);
-                }
-    
+                }   
                 return WeatherModelList;
             }
     }

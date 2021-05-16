@@ -13,24 +13,74 @@ namespace WeatherApp.ViewModels
 {
     public class WeeklyViewModel : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged = delegate { };
         private readonly double CanvasHeight;
         private readonly double CanvasWidth;
+        private short[] dataXCoordinate = new short[] { 30, 130, 230, 330, 430, 530, 630, 730 };
+       
         private static readonly string Path = "https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&units=metric&exclude=minutely,current,hourly&appid=386e45cb67b5d72af5917dc5b17536cb";
-        public IList<string> Days { get; set; }
-        public IList<double> MaxTemps { get; set; }
-        public IList<double> MinTemps { get; set; }
-        private GetWeeklyWeatherData GetWeeklyWeatherData;
+        private IList<short> _dataMin;
+        public IList<string> _days;
+        private IList<short> _dataMax;
+        public IList<double> _maxTemps;
+        public IList<double> _minTemps;
         private IList<WeeklyWeatherModel> _weeklyWeatherList;
-        public event PropertyChangedEventHandler PropertyChanged;
+        private GetWeeklyWeatherData GetWeeklyWeatherData;   
         private PointCollection _pointsMax = new PointCollection();
         private PointCollection _pointsMin = new PointCollection();
-        private short[] dataXCoordinate = new short[] { 20, 120, 220, 320,420,520, 620,720 };
-        private IList<short> DataMax { get; set; } 
-        private IList<short> DataMin { get; set; } 
+        
+        public IList<double> MinTemps
+        {
+            get { return _minTemps; }
+            set
+            {
+                _minTemps = value;
+                RaisePropertyChanged(nameof(MinTemps));
+            }
+        }
+
+        public IList<double> MaxTemps
+        {
+            get { return _maxTemps; }
+            set
+            {
+                _maxTemps = value;
+                RaisePropertyChanged(nameof(MaxTemps));
+            }
+        }
+        public IList<string> Days
+        {
+            get { return _days; }
+            set
+            {
+                _days = value;
+                RaisePropertyChanged(nameof(Days));
+            }
+        }
+        private IList<short> DataMax
+        {
+            get { return _dataMax; }
+            set
+            {
+                _dataMax = value;
+                RaisePropertyChanged(nameof(DataMax));
+            }
+        }
+        private IList<short> DataMin
+        {
+            get { return _dataMin; }
+            set
+            {
+                _dataMin = value;
+                RaisePropertyChanged(nameof(DataMin));
+            }
+        } 
         public IList<WeeklyWeatherModel> WeeklyWeatherList
         {
             get { return _weeklyWeatherList; }
-            set { _weeklyWeatherList = value; }
+            set { _weeklyWeatherList = value;
+                RaisePropertyChanged(nameof(WeeklyWeatherList));
+            }
         }
         public WeeklyViewModel(double height, double width)
         {
@@ -48,11 +98,21 @@ namespace WeatherApp.ViewModels
         public PointCollection PointsMax
         {
             get { return _pointsMax; }
+            set
+            {
+                _pointsMax = value;
+                RaisePropertyChanged(nameof(PointsMax));
+            }
         }
 
         public PointCollection PointsMin
         {
             get { return _pointsMin; }
+            set
+            {
+                _pointsMin = value;
+                RaisePropertyChanged(nameof(PointsMin));
+            }
         }
 
         public async Task<IList<string>> Setup()
@@ -146,6 +206,11 @@ namespace WeatherApp.ViewModels
                 PointsMin.Add(new Point(dataXCoordinate[i], DataMin[i]));
             }
         }
+        private void RaisePropertyChanged(string propertyName)
+        {
+            var handlers = PropertyChanged;
 
+            handlers(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

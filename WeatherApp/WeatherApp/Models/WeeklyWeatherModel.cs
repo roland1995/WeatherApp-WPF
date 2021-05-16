@@ -9,8 +9,6 @@ namespace WeatherApp.Models
     {
         [JsonPropertyName("weather")]
         public IList<IDictionary<string, string>> Weather { get; set; }
-
-
         public DateTime Date { get; set; }
 
         [JsonPropertyName("temp")]

@@ -27,7 +27,7 @@ namespace WeatherApp.Views
         {
             
             InitializeComponent();
-            _weeklyViewModel = new WeeklyViewModel(WeeklyCanvas.Height, WeeklyCanvas.Width);
+            _weeklyViewModel = new WeeklyViewModel(WeeklyCanvas.Height, WeeklyCanvas.Width);          
             SetUpCanvas();
            
         }
@@ -41,6 +41,7 @@ namespace WeatherApp.Views
             AddMaxTempsToCanvas();
             AddMinTempsToCanvas();
             DataContext = _weeklyViewModel;
+
         }
         private void AddMaxTempsToCanvas()
         {
