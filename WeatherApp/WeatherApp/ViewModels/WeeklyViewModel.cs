@@ -15,8 +15,9 @@ namespace WeatherApp.ViewModels
     {
         private static readonly string Path = "https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&units=metric&exclude=minutely,current,hourly&appid=386e45cb67b5d72af5917dc5b17536cb";
 
-        public ISet<string> Days { get; set; } = new HashSet<string>();
-
+        public ISet<string> Days { get; set; }
+        public IList<string> MaxTemps { get; set; }
+        public IList<string> MinTemps { get; set; }
         private GetWeeklyWeatherData GetWeeklyWeatherData;
         private IList<WeeklyWeatherModel> _weeklyWeatherList;
         public event PropertyChangedEventHandler PropertyChanged;
@@ -30,6 +31,13 @@ namespace WeatherApp.ViewModels
             get { return _weeklyWeatherList; }
             set { _weeklyWeatherList = value; }
         }
+        public WeeklyViewModel()
+        {
+            Days = new HashSet<string>();
+            MaxTemps = new List<string>();
+            MinTemps = new List<string>();
+            GetWeeklyWeatherData = new GetWeeklyWeatherData(Path);
+        }
 
 
         public PointCollection PointsMax
@@ -42,35 +50,42 @@ namespace WeatherApp.ViewModels
             get { return _pointsMin; }
         }
 
-        public WeeklyViewModel()
-        {
-            GetWeeklyWeatherData = new GetWeeklyWeatherData(Path);
-        }
+
 
         public async Task<ISet<string>> Setup()
         {
             FillUpPolyLines();
-            var List = await GetWeeklyWeatherData.GetFiveDaysWeather();
+            WeeklyWeatherList = await GetWeeklyWeatherData.GetFiveDaysWeather();
             FillUpDays();
+            FillMinTemps();
+            FillUpMaxTemps();
             return Days;       
         }
 
         private void FillUpDays()
         {
-            //foreach (var weather in FiveDaysWeatherModel.DailyList)
-            //{
-            //    Days.Add(weather.Date.ToString("dddd"));
-            //}
-            //DateTime dateValue = new DateTime(2008, 6, 11);
-            //Console.WriteLine(dateValue.ToString("dddd"));
-
-
-            //Days.Add("hétfő");
-            //Days.Add("kedd");
-            //Days.Add("szerda");
-            //Days.Add("csütörtök");
-            //Days.Add("péntek");
+            foreach (var weather in WeeklyWeatherList)
+            {
+                Days.Add(weather.Date.ToString("dddd"));
+            }
         }
+
+        private void FillMinTemps()
+        {
+            foreach (var weather in WeeklyWeatherList)
+            {
+                MinTemps.Add(weather.Temp["min"]);
+            }
+        }
+
+        private void FillUpMaxTemps()
+        {
+            foreach (var weather in WeeklyWeatherList)
+            {
+                MaxTemps.Add(weather.Temp["max"]);
+            }
+        }
+
 
         private void FillUpPolyLines()
         {

@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
                      d:DesignHeight="700" d:DesignWidth="900">
     <Grid Background="mediumturquoise">
-        <Canvas Width="600" Height="400" Name="WeeklyCanvas" Margin="50,200,50,71">
+        <Canvas Width="700" Height="400" Name="WeeklyCanvas" Margin="50,200,50,71">
             <Polyline
                         Points="{Binding PointsMax}"
                         Stroke="OrangeRed"

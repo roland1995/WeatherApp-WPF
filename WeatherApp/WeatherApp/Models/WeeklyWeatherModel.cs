@@ -18,12 +18,6 @@ namespace WeatherApp.Models
 
         private int _dt;
 
-
-        public WeeklyWeatherModel()
-        {
-           
-        }
-
         [JsonPropertyName("dt")]
         public int Dt
         {
@@ -34,12 +28,12 @@ namespace WeatherApp.Models
                 Date = ToDateTime(value);
                 _dt = value;
             }
-}
-            public static DateTime ToDateTime(int date)
-            {
-                long unixTime = Convert.ToInt64(date);
-                return new DateTime(1970, 1, 1).Add(TimeSpan.FromSeconds(unixTime));
-            }
+        }
+        public static DateTime ToDateTime(int date)
+        {
+            long unixTime = Convert.ToInt64(date);
+            return new DateTime(1970, 1, 1).Add(TimeSpan.FromSeconds(unixTime));
+        }
         
     }
 }

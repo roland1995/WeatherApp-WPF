@@ -44,7 +44,7 @@ namespace WeatherApp.Views
                 Canvas.SetLeft(TB, counter);
 
 
-                counter += 150;
+                counter += 100;
             }
             //for (var i = 0; i < 700; i += 150)
             //{
