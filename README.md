@@ -8,7 +8,7 @@
 
 ## How to launch while it is not deployed
 1. Download the project
-2. Open it with an IDE (for example with Visual Studio 2019)
+2. Open it with an IDE (for example with Visual Studio 2019) WeatherApp-WPF>WeatherApp> double click on WeatherApp.sln
 3. Start the application with F5 or crtl + f5
 
 ## Used technologies
