@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
-using System.Text;
 using System.Windows.Media;
 using WeatherApp.Models;
 using WeatherApp.Services;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading.Tasks;
-using System.Globalization;
 using System.Linq;
+
 
 namespace WeatherApp.ViewModels
 {
@@ -57,8 +55,6 @@ namespace WeatherApp.ViewModels
             get { return _pointsMin; }
         }
 
-
-
         public async Task<IList<string>> Setup()
         {   
             WeeklyWeatherList = await GetWeeklyWeatherData.GetFiveDaysWeather();
@@ -76,10 +72,9 @@ namespace WeatherApp.ViewModels
             foreach (var temp in MaxTemps)
             {
                 DataMax.Add(Convert.ToInt16(CanvasHeight-(6*temp)));
-            }
-                
-    
+            }                   
         }
+
         private void FillUpDataMin()
         {
             foreach (var temp in MinTemps)
@@ -92,10 +87,37 @@ namespace WeatherApp.ViewModels
         {
             foreach (var weather in WeeklyWeatherList)
             {
-                Days.Add(weather.Date.ToString("dddd"));
+                var day = weather.Date.ToString("dddd");
+
+                switch (day)
+                {
+                    case "hétfő":
+                        Days.Add("Monday");
+                        break;
+                    case "kedd":
+                        Days.Add("Tuesday");
+                        break;
+                    case "szerda":
+                        Days.Add("Wednesday");
+                        break;
+                    case "csütörtök":
+                        Days.Add("Thursday");
+                        break;
+                    case "péntek":
+                        Days.Add("Friday");
+                        break;
+                    case "szombat":
+                        Days.Add("Saturday");
+                        break;
+                    case "vasárnap":
+                        Days.Add("Sunday");
+                        break;
+                    default:
+                        Days.Add(weather.Date.ToString("dddd"));
+                        break;
+                }
             }
         }
-
         private void FillMinTemps()
         {
             
@@ -106,7 +128,6 @@ namespace WeatherApp.ViewModels
             }
 
         }
-
         private void FillUpMaxTemps()
         {
             
@@ -117,23 +138,14 @@ namespace WeatherApp.ViewModels
             }
         }
 
-
         private void FillUpPolyLines()
         {
-            short[] p1 = new short[] { 400, 330, 301, 315, 312, 400, 330, 301, 315, 312 };
-            short[] p2 = new short[] { 400, 350, 340, 345, 350,400, 350, 340, 345, 350 };
-
-            short[] dataMax= DataMax.ToArray();
-            short[] dataMin = DataMin.ToArray();
-
             for (int i = 0; i < dataXCoordinate.Length; i++)
             {
-                PointsMax.Add(new Point(dataXCoordinate[i], dataMax[i]));
-                PointsMin.Add(new Point(dataXCoordinate[i], dataMin[i]));
+                PointsMax.Add(new Point(dataXCoordinate[i], DataMax[i]));
+                PointsMin.Add(new Point(dataXCoordinate[i], DataMin[i]));
             }
         }
-
-        
 
     }
 }

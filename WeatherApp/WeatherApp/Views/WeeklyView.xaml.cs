@@ -41,22 +41,13 @@ namespace WeatherApp.Views
             AddMaxTempsToCanvas();
             AddMinTempsToCanvas();
             DataContext = _weeklyViewModel;
-
-
         }
         private void AddMaxTempsToCanvas()
         {
             int counter = 0;
             foreach (var temp in MaxTemps)
             {
-                TextBlock TB = new TextBlock();
-                TB.Text = temp + "°C";
-                TB.FontSize = 20;
-                TB.Background = Brushes.Red;
-                TB.Name = "TextB";
-                WeeklyCanvas.Children.Add(TB);
-                Canvas.SetLeft(TB, counter);
-                Canvas.SetTop(TB, 40);
+                CreateTextBlock(temp + "°C",20, Brushes.Red,counter,40);
                 counter += 100;
             }
         }
@@ -65,14 +56,7 @@ namespace WeatherApp.Views
             int counter = 0;
             foreach (var temp in MinTemps)
             {
-                TextBlock TB = new TextBlock();
-                TB.Text = temp + "°C";
-                TB.FontSize = 20;
-                TB.Background = Brushes.LightBlue;
-                TB.Name = "TextB";
-                WeeklyCanvas.Children.Add(TB);
-                Canvas.SetLeft(TB, counter);
-                Canvas.SetTop(TB, 80);
+                CreateTextBlock(temp + "°C", 20, Brushes.LightBlue, counter, 80);
                 counter += 100;
             }
         }
@@ -81,15 +65,22 @@ namespace WeatherApp.Views
             int counter = 0;
             foreach (var day in Days)
             {
-                TextBlock TB = new TextBlock();
-                TB.Text = day;
-                TB.FontSize = 20;
-                TB.Background = Brushes.Orange;
-                TB.Name = "TextB";
-                WeeklyCanvas.Children.Add(TB);
-                Canvas.SetLeft(TB, counter);
+                CreateTextBlock(day, 18, Brushes.Orange, counter, 0);
                 counter += 100;
             }
         }
+        private void CreateTextBlock(string text, int fontSize,Brush color,int xCoordinate,int yCoordinate)
+        {
+            TextBlock TB = new TextBlock();
+            TB.Text = text;
+            TB.FontSize = fontSize;
+            TB.Background = color;
+            TB.Name = "TextB";
+            WeeklyCanvas.Children.Add(TB);
+            Canvas.SetLeft(TB, xCoordinate);
+            Canvas.SetTop(TB, yCoordinate);
+        }
+
+
     }
 }
