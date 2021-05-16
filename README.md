@@ -4,7 +4,7 @@
 
 ## Project description
 ### This is a WPF(.Net) MVVM application
-### Shows the valid  weather for actual day and the next 7 Days.
+### Shows the valid  weather of Budapest for actual day and the next 7 Days.
 
 ## Used technologies
 - WPF(.Net)
