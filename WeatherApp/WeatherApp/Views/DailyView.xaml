@@ -22,7 +22,7 @@
         <Grid Grid.Row="2">
             <ListBox 
                 Background="sandybrown"
-            ItemsSource="{Binding WeatherModel.Main}"
+            ItemsSource="{Binding WeatherDict}"
            
             >
                 <ListBox.ItemTemplate>

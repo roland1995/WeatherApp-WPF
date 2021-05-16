@@ -12,10 +12,23 @@ namespace WeatherApp.ViewModels
         private static string Path = "http://api.openweathermap.org/data/2.5/weather?q=Budapest&units=metric&appid=386e45cb67b5d72af5917dc5b17536cb";
         private DailyWeatherModel _weatherModel;
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
-      
-        GetDailyWeatherData GetActualWeatherData;
+        public IDictionary<string, string> _weather;
+
+        public IDictionary<string, string> WeatherDict
+        {
+            get => _weather;
+
+            set
+            {
+                _weather = value;
+                RaisePropertyChanged(nameof(WeatherDict));
+            }
+        }
+
+    GetDailyWeatherData GetActualWeatherData;
         public DailyViewModel()
         {
+            WeatherDict = new Dictionary<string, string>();
             GetActualWeatherData = new GetDailyWeatherData(Path);
             Setup();
         }
@@ -33,12 +46,12 @@ namespace WeatherApp.ViewModels
         public async void Setup()
         {
             WeatherModel = await GetActualWeatherData.GetActualWeather();
-            WeatherModel.Main["temp"] += "°C";
-            WeatherModel.Main["temp_min"] += "°C";
-            WeatherModel.Main["temp_max"] += "°C";
-            WeatherModel.Main["feels_like"] += "°C";
-            WeatherModel.Main["humidity"] += " %";
-            WeatherModel.Main["pressure"] += " hPa";
+            WeatherDict.Add("temperature", WeatherModel.Main["temp"] + "°C");
+            WeatherDict.Add("max_temperature", WeatherModel.Main["temp_max"] + "°C");
+            WeatherDict.Add("min_temperature", WeatherModel.Main["temp_min"] + "°C");
+            WeatherDict.Add("feeling_temp", WeatherModel.Main["feels_like"] + "°C");
+            WeatherDict.Add("humidity", WeatherModel.Main["humidity"] + " %");
+            WeatherDict.Add("pressure", WeatherModel.Main["pressure"] + " hPa");
         }
 
         private void RaisePropertyChanged(string propertyName)
