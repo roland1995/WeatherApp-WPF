@@ -7,7 +7,17 @@
              mc:Ignorable="d" 
                      d:DesignHeight="700" d:DesignWidth="900">
     <Grid Background="mediumturquoise">
-        <Canvas Width="800" Height="400" Name="WeeklyCanvas" Margin="50,200,50,71">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" >
+            <TextBlock Text="Next Days Weather" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40" FontWeight="ExtraBlack" ></TextBlock>
+        </Grid>
+        <Grid Grid.Row="1">
+            
+        <Canvas Width="800" Height="400" Name="WeeklyCanvas" Margin="50,111,50,111">
             <Polyline
                         Points="{Binding PointsMax}"
                         Stroke="OrangeRed"
@@ -19,5 +29,6 @@
                     StrokeThickness="7" Canvas.Top="-10" 
                     />
         </Canvas>
+        </Grid>
     </Grid>
 </UserControl>
