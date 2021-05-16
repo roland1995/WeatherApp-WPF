@@ -8,6 +8,7 @@
                      d:DesignHeight="700" d:DesignWidth="900">
     <Grid Background="mediumturquoise">
         <Canvas Width="600" Height="400" Name="WeeklyCanvas" Margin="50,200,50,71">
+            <TextBlock Width="100" Canvas.Left="0" Canvas.Top="10" Text="Hétfő"></TextBlock>
             <Polyline
                         Points="{Binding PointsMax}"
                         Stroke="OrangeRed"

@@ -9,14 +9,17 @@
     <Grid Background="sandybrown">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
             <RowDefinition Height="7*"/>
-            <RowDefinition />
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <TextBlock Width="57"  FontSize="24" TextAlignment="Center" Text="City:" HorizontalAlignment="Left" Margin="0,20,0,20"/>
-            <TextBlock  FontSize="24" TextAlignment="Left" Text="{Binding WeatherModel.Name}" Margin="62,20,5,20"/>
+        <Grid Grid.Row="0" >
+            <TextBlock FontWeight="DemiBold" FontSize="28" TextAlignment="Center" Text="Actual Weather" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Grid>
         <Grid Grid.Row="1">
+            <TextBlock FontSize="24" TextAlignment="Center" Text="City:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
+            <TextBlock  FontSize="24" TextAlignment="Left" Text="{Binding WeatherModel.Name}" VerticalAlignment="Center" Margin="70,0,0,0"/>
+        </Grid>
+        <Grid Grid.Row="2">
             <ListBox 
                 Background="sandybrown"
             ItemsSource="{Binding WeatherModel.Main}"
