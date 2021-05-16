@@ -14,8 +14,7 @@ namespace WeatherApp.ViewModels
     public class WeeklyViewModel : INotifyPropertyChanged
     {
         private static readonly string Path = "https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&units=metric&exclude=minutely,current,hourly&appid=386e45cb67b5d72af5917dc5b17536cb";
-
-        public ISet<string> Days { get; set; }
+        public IList<string> Days { get; set; }
         public IList<string> MaxTemps { get; set; }
         public IList<string> MinTemps { get; set; }
         private GetWeeklyWeatherData GetWeeklyWeatherData;
@@ -23,7 +22,7 @@ namespace WeatherApp.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
         private PointCollection _pointsMax = new PointCollection();
         private PointCollection _pointsMin = new PointCollection();
-        private short[] dataXCoordinate = new short[] { 10, 150, 300, 450, 600 };
+        private short[] dataXCoordinate = new short[] { 0, 100, 200, 300,400,500, 600,700,800 };
         private short[] dataMax1 = new short[] { 400, 330, 301, 315, 312 }; 
         private short[] dataMin1 = new short[] { 400, 350, 340, 345, 350 };
         public IList<WeeklyWeatherModel> WeeklyWeatherList
@@ -33,7 +32,7 @@ namespace WeatherApp.ViewModels
         }
         public WeeklyViewModel()
         {
-            Days = new HashSet<string>();
+            Days = new List<string>();
             MaxTemps = new List<string>();
             MinTemps = new List<string>();
             GetWeeklyWeatherData = new GetWeeklyWeatherData(Path);
@@ -52,7 +51,7 @@ namespace WeatherApp.ViewModels
 
 
 
-        public async Task<ISet<string>> Setup()
+        public async Task<IList<string>> Setup()
         {
             FillUpPolyLines();
             WeeklyWeatherList = await GetWeeklyWeatherData.GetFiveDaysWeather();
@@ -68,6 +67,7 @@ namespace WeatherApp.ViewModels
             {
                 Days.Add(weather.Date.ToString("dddd"));
             }
+           
         }
 
         private void FillMinTemps()
@@ -76,6 +76,7 @@ namespace WeatherApp.ViewModels
             {
                 MinTemps.Add(weather.Temp["min"]);
             }
+
         }
 
         private void FillUpMaxTemps()

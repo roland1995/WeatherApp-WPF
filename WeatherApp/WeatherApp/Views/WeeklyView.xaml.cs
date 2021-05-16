@@ -19,6 +19,9 @@ namespace WeatherApp.Views
     /// </summary>
     public partial class WeeklyView : UserControl
     {
+        public IList<string> Days { get; set; }
+        public IList<string> MaxTemps { get; set; }
+        public IList<string> MinTemps { get; set; }
         private WeeklyViewModel _weeklyViewModel;
         public WeeklyView()
         {
@@ -30,9 +33,50 @@ namespace WeatherApp.Views
 
         private async void SetUpCanvas()
         {
-            var Days = await _weeklyViewModel.Setup();
+            Days = await _weeklyViewModel.Setup();
+            MinTemps = _weeklyViewModel.MinTemps;
+            MaxTemps = _weeklyViewModel.MaxTemps;
+            AddDaysToCanvas();
+            AddMaxTempsToCanvas();
+            AddMinTempsToCanvas();
+
+        }
+        private void AddMaxTempsToCanvas()
+        {
             int counter = 0;
-            foreach(var day in Days)
+            foreach (var temp in MaxTemps)
+            {
+                TextBlock TB = new TextBlock();
+                TB.Text = temp + "°C";
+                TB.FontSize = 20;
+                TB.Background = Brushes.Red;
+                TB.Name = "TextB";
+                WeeklyCanvas.Children.Add(TB);
+                Canvas.SetLeft(TB, counter);
+                Canvas.SetTop(TB, 40);
+                counter += 100;
+            }
+        }
+        private void AddMinTempsToCanvas()
+        {
+            int counter = 0;
+            foreach (var temp in MinTemps)
+            {
+                TextBlock TB = new TextBlock();
+                TB.Text = temp + "°C";
+                TB.FontSize = 20;
+                TB.Background = Brushes.LightBlue;
+                TB.Name = "TextB";
+                WeeklyCanvas.Children.Add(TB);
+                Canvas.SetLeft(TB, counter);
+                Canvas.SetTop(TB, 80);
+                counter += 100;
+            }
+        }
+        private void AddDaysToCanvas()
+        {
+            int counter = 0;
+            foreach (var day in Days)
             {
                 TextBlock TB = new TextBlock();
                 TB.Text = day;
@@ -40,27 +84,9 @@ namespace WeatherApp.Views
                 TB.Background = Brushes.Orange;
                 TB.Name = "TextB";
                 WeeklyCanvas.Children.Add(TB);
-
                 Canvas.SetLeft(TB, counter);
-
-
                 counter += 100;
             }
-            //for (var i = 0; i < 700; i += 150)
-            //{
-            //    string text = Days[counter];
-            //    TextBlock TB = new TextBlock();
-            //    TB.Text = text;
-            //    TB.FontSize = 20;
-            //    TB.Background = Brushes.Orange;
-            //    TB.Name = "TextB";
-            //    WeeklyCanvas.Children.Add(TB);
-
-            //    Canvas.SetLeft(TB, i);
-
-
-            //    counter++;
-            //}
         }
     }
 }

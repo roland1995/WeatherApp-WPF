@@ -33,10 +33,10 @@ namespace WeatherApp.ViewModels
         public async void Setup()
         {
             WeatherModel = await GetActualWeatherData.GetActualWeather();
-            WeatherModel.Main["temp"] += " Celsius";
-            WeatherModel.Main["temp_min"] += " Celsius";
-            WeatherModel.Main["temp_max"] += " Celsius";
-            WeatherModel.Main["feels_like"] += " Celsius";
+            WeatherModel.Main["temp"] += "°C";
+            WeatherModel.Main["temp_min"] += "°C";
+            WeatherModel.Main["temp_max"] += "°C";
+            WeatherModel.Main["feels_like"] += "°C";
             WeatherModel.Main["humidity"] += " %";
             WeatherModel.Main["pressure"] += " hPa";
         }
