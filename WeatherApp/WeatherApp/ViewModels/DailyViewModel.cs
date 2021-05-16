@@ -19,8 +19,6 @@ namespace WeatherApp.ViewModels
             GetActualWeatherData = new GetDailyWeatherData(Path);
             Setup();
         }
-
-
         public DailyWeatherModel WeatherModel
         {
             get => _weatherModel;

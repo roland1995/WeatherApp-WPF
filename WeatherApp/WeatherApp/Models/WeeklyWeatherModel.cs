@@ -5,15 +5,41 @@ using System.Text.Json.Serialization;
 
 namespace WeatherApp.Models
 {
-    class WeeklyWeatherModel
+    public class WeeklyWeatherModel
     {
         [JsonPropertyName("weather")]
         public IList<IDictionary<string, string>> Weather { get; set; }
 
-        [JsonPropertyName("dt_txt")]
+
         public DateTime Date { get; set; }
 
-        [JsonPropertyName("main")]
-        public IDictionary<string, string> Main { get; set; }
+        [JsonPropertyName("temp")]
+        public IDictionary<string, string> Temp { get; set; }
+
+        private int _dt;
+
+
+        public WeeklyWeatherModel()
+        {
+           
+        }
+
+        [JsonPropertyName("dt")]
+        public int Dt
+        {
+            get => _dt;
+
+            set
+            {
+                Date = ToDateTime(value);
+                _dt = value;
+            }
+}
+            public static DateTime ToDateTime(int date)
+            {
+                long unixTime = Convert.ToInt64(date);
+                return new DateTime(1970, 1, 1).Add(TimeSpan.FromSeconds(unixTime));
+            }
+        
     }
 }

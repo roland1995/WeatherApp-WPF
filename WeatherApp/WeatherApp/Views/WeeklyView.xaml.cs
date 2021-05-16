@@ -19,12 +19,48 @@ namespace WeatherApp.Views
     /// </summary>
     public partial class WeeklyView : UserControl
     {
-        private WeeklyViewModel WeeklyViewModel;
+        private WeeklyViewModel _weeklyViewModel;
         public WeeklyView()
         {
-            WeeklyViewModel = new WeeklyViewModel();
+            _weeklyViewModel = new WeeklyViewModel();
             InitializeComponent();
-            DataContext = WeeklyViewModel;
+            SetUpCanvas();
+            DataContext = _weeklyViewModel;
+        }
+
+        private async void SetUpCanvas()
+        {
+            var Days = await _weeklyViewModel.Setup();
+            int counter = 0;
+            foreach(var day in Days)
+            {
+                TextBlock TB = new TextBlock();
+                TB.Text = day;
+                TB.FontSize = 20;
+                TB.Background = Brushes.Orange;
+                TB.Name = "TextB";
+                WeeklyCanvas.Children.Add(TB);
+
+                Canvas.SetLeft(TB, counter);
+
+
+                counter += 150;
+            }
+            //for (var i = 0; i < 700; i += 150)
+            //{
+            //    string text = Days[counter];
+            //    TextBlock TB = new TextBlock();
+            //    TB.Text = text;
+            //    TB.FontSize = 20;
+            //    TB.Background = Brushes.Orange;
+            //    TB.Name = "TextB";
+            //    WeeklyCanvas.Children.Add(TB);
+
+            //    Canvas.SetLeft(TB, i);
+
+
+            //    counter++;
+            //}
         }
     }
 }
